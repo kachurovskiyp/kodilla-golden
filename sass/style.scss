@@ -1,3 +1,8 @@
+/* Variables */
+
+$color-yellow: #fed136;
+$color-white: #ffffff;
+
 /* Global */
 .visually-hidden {
     position: absolute;
@@ -10,4 +15,160 @@
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     margin: -1px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;    
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: "droid";
+    src:
+      url("../fonts/droid_serif-italic.woff2") format("woff2"),
+      url("../fonts/droid_serif-italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "wisdom";
+    src:
+      url("../fonts/wisdom.woff2") format("woff2"),
+      url("../fonts/wisdom.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Mixins */
+
+@mixin clear-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+@mixin clear-link($color: inherit) {
+    text-decoration: none;
+    color: $color;
+}
+  
+@mixin font-montserrat($size: 14px, $line: 41px) {
+    font-family: 'Montserrat', sans-serif;
+    font-size: $size;
+    line-height: $line;
+    font-weight: 400;
+}
+
+@mixin font-montserrat_bold($size: 14px, $line: 41px) {
+    font-family: 'Montserrat', sans-serif;
+    font-size: $size;
+    line-height: $line;
+    font-weight: 700;
+}
+
+@mixin font-wisdom($size: 14px, $line: 41px) {
+    font-family: 'wisdom', sans-serif;
+    font-size: $size;
+    line-height: $line;
+    font-weight: 400;
+}
+
+@mixin font-droid($size: 14px, $line: 41px) {
+    font-family: 'droid', serif;
+    font-size: $size;
+    line-height: $line;
+    font-weight: 400;
+}
+
+/* Header */
+
+.header {
+    min-height: 700px;
+
+    background-image: url('../images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: $color-white;
+    text-align: center;
+}
+
+.header__logo {
+    @include font-wisdom(26px);
+    @include clear-link($color-yellow);
+
+    &:hover {
+        font-size: 28px;
+    }
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 40px;
+    margin-bottom: 200px;
+}
+
+.header__navigation {
+    padding-top: 10px;
+
+    & ul {
+        @include clear-list;
+        display: flex;
+
+        width: 60%;
+    }
+
+    & li {
+        margin-right: 30px;
+    }
+
+    & a {
+        @include clear-link;
+        @include font-montserrat;
+        text-transform: uppercase;
+
+        &:hover {
+            color: $color-yellow;
+        }
+    }
+}
+
+.header__title {
+    @include font-droid(40px);
+}
+
+.header__description {
+    @include font-montserrat_bold(75px, 100px);
+    text-transform: uppercase;
+}
+
+.header__more-button {
+    @include clear-link;
+    @include font-montserrat_bold(18px, 60px);
+
+    display: inline-block;
+    width: 240px;
+    min-height: 60px;
+
+    background-color: $color-yellow;
+    border-radius: 5px;
+
+    text-transform: uppercase;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
