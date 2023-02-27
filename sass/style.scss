@@ -3,6 +3,17 @@
 $color-yellow: #fed136;
 $color-white: #ffffff;
 $color-grey: #f7f7f7;
+$color-black: #000000;
+$color-grey-text: #555555;
+
+$color-twitter: #00aced;
+$color-facebook: #3b5998;
+$color-pinterest: #cb2028;
+$color-google: #da2713;
+
+$desktop-width: 1023px;
+$tablet-width: 767px;
+$mobile-width: 400px;
 
 /* Fonts */
 
@@ -253,7 +264,7 @@ body {
 .portfolio__item {
     max-width: 300px;
     text-align: center;
-    margin-bottom: 30px;
+    margin: 0 10px 30px 10px;
 }
 
 .portfolio__name {
@@ -264,4 +275,130 @@ body {
 .portfolio__text {
     @include font-droid(14px, 22px);
     margin: 5px 0;
+}
+
+/* Footer */
+
+.footer {
+    position: relative;
+
+    display: flex;
+    min-height: 120px;
+}
+
+.footer__copyright {
+    @include font-montserrat(14px, 22px);
+    color: $color-grey-text;
+
+    position: absolute;
+    left: 20px;
+    top: 30%;
+
+    & a {
+        @include clear-link;
+    }
+}
+
+.footer__social {
+    @include clear-list;
+    display: flex;
+
+    max-width: 200px;
+    margin: auto;
+}
+
+.footer__social-item {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+
+    background-color: $color-black;
+    border-radius: 50%;
+    
+    text-align: center; 
+    
+    & a {
+        line-height: 45px;
+    }
+    
+    &:last-child {
+        margin-right: unset;
+    }
+
+    &--twitter:hover {
+        background-color: $color-twitter;
+    }
+
+    &--facebook:hover {
+        background-color: $color-facebook;
+    }
+
+    &--pinterest:hover {
+        background-color: $color-pinterest;
+    }
+
+    &--google:hover {
+        background-color: $color-google;
+    }
+}
+
+
+/* Media queries */
+
+@media (max-width: $desktop-width) {
+    .header {
+        padding-bottom: 40px;
+    }
+
+    .services__wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .portfolio__wrapper {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: $tablet-width) {
+    .header__wrapper {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .header__description {
+        font-size: 40px;
+    }
+
+    .header__navigation ul {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer__social {
+        order: 1;
+    }
+
+    .footer__copyright {   
+        order: 2; 
+        position: static;
+        left: unset;
+        top: unset;
+
+        text-align: center;
+    }
+}
+
+@media (max-width: $mobile-width) {
+    .header__navigation ul {
+        flex-direction: column;
+    }
+
+    .header__navigation ul {
+        margin-right: 0;
+    }
 }
