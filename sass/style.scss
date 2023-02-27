@@ -2,8 +2,10 @@
 
 $color-yellow: #fed136;
 $color-white: #ffffff;
+$color-grey: #f7f7f7;
 
 /* Global */
+
 .visually-hidden {
     position: absolute;
     white-space: nowrap;
@@ -28,6 +30,7 @@ body {
 .wrapper {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 30px;
 }
 
 /* Fonts */
@@ -89,6 +92,13 @@ body {
     font-size: $size;
     line-height: $line;
     font-weight: 400;
+}
+
+@mixin header($max-width: 400px) {
+    text-align: center;
+
+    max-width: $max-width;
+    margin: 0 auto;
 }
 
 /* Header */
@@ -171,4 +181,54 @@ body {
     &:hover {
         transform: scale(1.1);
     }
+}
+
+/* Services */
+
+.services {
+    padding: 120px 0;
+}
+
+.services__header {
+    @include font-montserrat_bold(40px, 75px);
+    @include header;
+    text-transform: uppercase;
+}
+
+.services__description {
+    @include font-droid(16px, 32px);
+    @include header(600px);
+}
+
+.services__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 70px;
+}
+
+.services__item {
+    min-width: 300px;
+    text-align: center;
+}
+
+.services__icon {
+    width: 75px;
+    height: 75px;
+    border: 3px solid $color-yellow;
+    border-radius: 50%;
+
+    margin: 0 auto;
+    line-height: 90px;
+}
+
+.services__name {
+    @include font-montserrat_bold(18px, 75px);
+    margin: 0;
+}
+
+.services__text {
+    font-family: 'Roboto Slab', serif;
+    font-size: 14px;
+    line-height: 20px;
 }
