@@ -4,35 +4,6 @@ $color-yellow: #fed136;
 $color-white: #ffffff;
 $color-grey: #f7f7f7;
 
-/* Global */
-
-.visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
-}
-
-*, *::before, *::after {
-    box-sizing: border-box;    
-}
-
-body {
-    margin: 0;
-}
-
-.wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 30px;
-}
-
 /* Fonts */
 
 @font-face {
@@ -99,6 +70,46 @@ body {
 
     max-width: $max-width;
     margin: 0 auto;
+}
+
+/* Global */
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;    
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.title {
+    @include font-montserrat_bold(40px, 75px);
+    @include header;
+    text-transform: uppercase;
+}
+
+.sub-title {
+    @include font-droid(16px, 32px);
+    @include header(600px);
 }
 
 /* Header */
@@ -189,17 +200,6 @@ body {
     padding: 120px 0;
 }
 
-.services__header {
-    @include font-montserrat_bold(40px, 75px);
-    @include header;
-    text-transform: uppercase;
-}
-
-.services__description {
-    @include font-droid(16px, 32px);
-    @include header(600px);
-}
-
 .services__wrapper {
     display: flex;
     justify-content: space-between;
@@ -231,4 +231,37 @@ body {
     font-family: 'Roboto Slab', serif;
     font-size: 14px;
     line-height: 20px;
+}
+
+/* Portfolio */
+
+.portfolio {
+    background-color: $color-grey;
+    padding: 40px 0;
+}
+
+.portfolio__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    max-width: 950px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.portfolio__item {
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.portfolio__name {
+    @include font-montserrat_bold(18px, 22px);
+    margin: 5px 0;
+}
+
+.portfolio__text {
+    @include font-droid(14px, 22px);
+    margin: 5px 0;
 }
